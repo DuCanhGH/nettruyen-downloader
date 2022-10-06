@@ -1,6 +1,8 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@babel/code-frame': 7.18.6
+  '@ducanh2912/rollup-plugin-terser': 1.1.2
   '@eslint/eslintrc': 1.3.2
   '@rollup/plugin-typescript': 8.5.0
   '@semantic-release/changelog': 6.0.1
@@ -9,6 +11,7 @@ specifiers:
   '@semantic-release/github': 8.0.6
   '@semantic-release/npm': 9.0.1
   '@semantic-release/release-notes-generator': 10.0.3
+  '@types/babel__code-frame': 7.0.3
   '@types/inquirer': 9.0.2
   '@types/node': 18.8.2
   '@types/pdfkit': 0.12.6
@@ -31,6 +34,7 @@ specifiers:
   rollup: 2.79.1
   semantic-release: 19.0.5
   sharp: 0.31.1
+  terser: 5.15.1
   tslib: 2.4.0
   tsx: 3.9.0
   typescript: 4.8.4
@@ -46,6 +50,8 @@ dependencies:
   tslib: 2.4.0
 
 devDependencies:
+  '@babel/code-frame': 7.18.6
+  '@ducanh2912/rollup-plugin-terser': 1.1.2_rollup@2.79.1
   '@eslint/eslintrc': 1.3.2
   '@rollup/plugin-typescript': 8.5.0_hafrwlgfjmvsm7253l3bfjzhnq
   '@semantic-release/changelog': 6.0.1_semantic-release@19.0.5
@@ -54,6 +60,7 @@ devDependencies:
   '@semantic-release/github': 8.0.6_semantic-release@19.0.5
   '@semantic-release/npm': 9.0.1_semantic-release@19.0.5
   '@semantic-release/release-notes-generator': 10.0.3_semantic-release@19.0.5
+  '@types/babel__code-frame': 7.0.3
   '@types/inquirer': 9.0.2
   '@types/node': 18.8.2
   '@types/pdfkit': 0.12.6
@@ -69,6 +76,7 @@ devDependencies:
   rimraf: 3.0.2
   rollup: 2.79.1
   semantic-release: 19.0.5
+  terser: 5.15.1
   tsx: 3.9.0
   typescript: 4.8.4
 
@@ -101,6 +109,16 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@ducanh2912/rollup-plugin-terser/1.1.2_rollup@2.79.1:
+    resolution: {integrity: sha512-gYefLSvtKTv1Pdl7ScdnJjnTTHTvb5S6Pt3FVfb94S3fhGMFYEPgnFYtCwcY1xdL53sXMEPCBi+zZcVvr/jFaQ==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      rollup: '>=2.0.0'
+    dependencies:
+      rollup: 2.79.1
+      tslib: 2.4.0
+    dev: true
 
   /@esbuild-kit/cjs-loader/2.3.3:
     resolution: {integrity: sha512-Rt4O1mXlPEDVxvjsHLgbtHVdUXYK9C1/6ThpQnt7FaXIjUOsI6qhHYMgALhNnlIMZffag44lXd6Dqgx3xALbpQ==}
@@ -180,6 +198,43 @@ packages:
 
   /@humanwhocodes/object-schema/1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
+    dev: true
+
+  /@jridgewell/gen-mapping/0.3.2:
+    resolution: {integrity: sha512-mh65xKQAzI6iBcFzwv28KVWSmCkdRBWoOh+bYQGW3+6OZvbbN3TqMGo5hqYxQniRcH9F2VZIoJCm4pa3BPDK/A==}
+    engines: {node: '>=6.0.0'}
+    dependencies:
+      '@jridgewell/set-array': 1.1.2
+      '@jridgewell/sourcemap-codec': 1.4.14
+      '@jridgewell/trace-mapping': 0.3.15
+    dev: true
+
+  /@jridgewell/resolve-uri/3.1.0:
+    resolution: {integrity: sha512-F2msla3tad+Mfht5cJq7LSXcdudKTWCVYUgw6pLFOOHSTtZlj6SWNYAp+AhuqLmWdBO2X5hPrLcu8cVP8fy28w==}
+    engines: {node: '>=6.0.0'}
+    dev: true
+
+  /@jridgewell/set-array/1.1.2:
+    resolution: {integrity: sha512-xnkseuNADM0gt2bs+BvhO0p78Mk762YnZdsuzFV018NoG1Sj1SCQvpSqa7XUaTam5vAGasABV9qXASMKnFMwMw==}
+    engines: {node: '>=6.0.0'}
+    dev: true
+
+  /@jridgewell/source-map/0.3.2:
+    resolution: {integrity: sha512-m7O9o2uR8k2ObDysZYzdfhb08VuEml5oWGiosa1VdaPZ/A6QyPkAJuwN0Q1lhULOf6B7MtQmHENS743hWtCrgw==}
+    dependencies:
+      '@jridgewell/gen-mapping': 0.3.2
+      '@jridgewell/trace-mapping': 0.3.15
+    dev: true
+
+  /@jridgewell/sourcemap-codec/1.4.14:
+    resolution: {integrity: sha512-XPSJHWmi394fuUuzDnGz1wiKqWfo1yXecHQMRf2l6hztTO+nPru658AyDngaBe7isIxEkRsPR3FZh+s7iVa4Uw==}
+    dev: true
+
+  /@jridgewell/trace-mapping/0.3.15:
+    resolution: {integrity: sha512-oWZNOULl+UbhsgB51uuZzglikfIKSUBO/M9W2OfEjn7cmqoAiCgmv9lyACTUacZwBz0ITnJ2NqjU8Tx0DHL88g==}
+    dependencies:
+      '@jridgewell/resolve-uri': 3.1.0
+      '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
 
   /@nodelib/fs.scandir/2.1.5:
@@ -484,6 +539,10 @@ packages:
   /@tootallnate/once/2.0.0:
     resolution: {integrity: sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==}
     engines: {node: '>= 10'}
+    dev: true
+
+  /@types/babel__code-frame/7.0.3:
+    resolution: {integrity: sha512-2TN6oiwtNjOezilFVl77zwdNPwQWaDBBCCWWxyo1ctiO3vAtd7H/aB/CBJdw9+kqq3+latD0SXoedIuHySSZWw==}
     dev: true
 
   /@types/debug/4.1.7:
@@ -1056,6 +1115,10 @@ packages:
     dependencies:
       delayed-stream: 1.0.0
     dev: false
+
+  /commander/2.20.3:
+    resolution: {integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==}
+    dev: true
 
   /comment-parser/1.3.1:
     resolution: {integrity: sha512-B52sN2VNghyq5ofvUsqZjmk6YkihBX5vMSChmSK9v4ShjKf3Vk5Xcmgpw4o+iIgtrnM/u5FiMpz9VKb8lpBveA==}
@@ -4087,6 +4150,17 @@ packages:
       temp-dir: 2.0.0
       type-fest: 0.16.0
       unique-string: 2.0.0
+    dev: true
+
+  /terser/5.15.1:
+    resolution: {integrity: sha512-K1faMUvpm/FBxjBXud0LWVAGxmvoPbZbfTCYbSgaaYQaIXI3/TdI7a7ZGA73Zrou6Q8Zmz3oeUTsp/dj+ag2Xw==}
+    engines: {node: '>=10'}
+    hasBin: true
+    dependencies:
+      '@jridgewell/source-map': 0.3.2
+      acorn: 8.8.0
+      commander: 2.20.3
+      source-map-support: 0.5.21
     dev: true
 
   /text-extensions/1.9.0:

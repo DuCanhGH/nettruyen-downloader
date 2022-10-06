@@ -10,4 +10,4 @@ interface ChapterType {
 
 type DownloadTypesType = typeof DOWNLOAD_TYPES[number];
 
-export { ChapterType, DownloadTypesType, ImageType };
+export type { ChapterType, DownloadTypesType, ImageType };

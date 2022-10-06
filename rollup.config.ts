@@ -1,7 +1,8 @@
+import { terser } from "@ducanh2912/rollup-plugin-terser";
 import typescript from "@rollup/plugin-typescript";
+import { defineConfig } from "rollup";
 
-/** @type {import("rollup").RollupOptions} */
-export default {
+export default defineConfig({
   input: "src/index.ts",
   output: {
     file: "dist/index.js",
@@ -13,6 +14,7 @@ export default {
       noForceEmit: true,
       noEmitOnError: true,
     }),
+    terser(),
   ],
   external: [
     "axios",
@@ -26,4 +28,4 @@ export default {
     "node-html-parser",
     "crypto",
   ],
-};
+});
