@@ -1,8 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@babel/code-frame': 7.18.6
-  '@ducanh2912/rollup-plugin-terser': 1.1.2
+  '@ducanh2912/rollup-plugin-terser': 1.2.0
   '@eslint/eslintrc': 1.3.2
   '@rollup/plugin-typescript': 8.5.0
   '@semantic-release/changelog': 6.0.1
@@ -11,7 +10,6 @@ specifiers:
   '@semantic-release/github': 8.0.6
   '@semantic-release/npm': 9.0.1
   '@semantic-release/release-notes-generator': 10.0.3
-  '@types/babel__code-frame': 7.0.3
   '@types/inquirer': 9.0.2
   '@types/node': 18.8.2
   '@types/pdfkit': 0.12.6
@@ -50,8 +48,7 @@ dependencies:
   tslib: 2.4.0
 
 devDependencies:
-  '@babel/code-frame': 7.18.6
-  '@ducanh2912/rollup-plugin-terser': 1.1.2_rollup@2.79.1
+  '@ducanh2912/rollup-plugin-terser': 1.2.0_tmhs7xnjcxrp2ultwy7bfacunu
   '@eslint/eslintrc': 1.3.2
   '@rollup/plugin-typescript': 8.5.0_hafrwlgfjmvsm7253l3bfjzhnq
   '@semantic-release/changelog': 6.0.1_semantic-release@19.0.5
@@ -60,7 +57,6 @@ devDependencies:
   '@semantic-release/github': 8.0.6_semantic-release@19.0.5
   '@semantic-release/npm': 9.0.1_semantic-release@19.0.5
   '@semantic-release/release-notes-generator': 10.0.3_semantic-release@19.0.5
-  '@types/babel__code-frame': 7.0.3
   '@types/inquirer': 9.0.2
   '@types/node': 18.8.2
   '@types/pdfkit': 0.12.6
@@ -110,13 +106,15 @@ packages:
     dev: true
     optional: true
 
-  /@ducanh2912/rollup-plugin-terser/1.1.2_rollup@2.79.1:
-    resolution: {integrity: sha512-gYefLSvtKTv1Pdl7ScdnJjnTTHTvb5S6Pt3FVfb94S3fhGMFYEPgnFYtCwcY1xdL53sXMEPCBi+zZcVvr/jFaQ==}
+  /@ducanh2912/rollup-plugin-terser/1.2.0_tmhs7xnjcxrp2ultwy7bfacunu:
+    resolution: {integrity: sha512-5JfM64n+dfbAt9VHUmD6PFdoz0JEOpXk3TI9vHd+gFyfbhya5vXDBeUHKTzFX+KK/ykBk1AhR4iIG75xFja+fQ==}
     engines: {node: '>=10'}
     peerDependencies:
       rollup: '>=2.0.0'
+      terser: '>=5.0.0'
     dependencies:
       rollup: 2.79.1
+      terser: 5.15.1
       tslib: 2.4.0
     dev: true
 
@@ -539,10 +537,6 @@ packages:
   /@tootallnate/once/2.0.0:
     resolution: {integrity: sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==}
     engines: {node: '>= 10'}
-    dev: true
-
-  /@types/babel__code-frame/7.0.3:
-    resolution: {integrity: sha512-2TN6oiwtNjOezilFVl77zwdNPwQWaDBBCCWWxyo1ctiO3vAtd7H/aB/CBJdw9+kqq3+latD0SXoedIuHySSZWw==}
     dev: true
 
   /@types/debug/4.1.7:
