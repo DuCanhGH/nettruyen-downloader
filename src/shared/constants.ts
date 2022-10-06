@@ -1,8 +1,9 @@
 import inquirer from "inquirer";
 
 export const DOWNLOAD_TYPES = [
-  "Download all parts",
-  "Select parts",
+  "Download all groups",
+  "Download a range of groups",
+  "Select groups",
   new inquirer.Separator(),
   "Download a chapter",
   "Download a range of chapters",
