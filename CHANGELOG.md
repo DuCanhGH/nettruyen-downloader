@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/DuCanhGH/nettruyen-downloader/compare/v1.1.0...v1.2.0) (2022-10-06)
+
+
+### Features
+
+* Download a range of groups ([c4da1a4](https://github.com/DuCanhGH/nettruyen-downloader/commit/c4da1a4807e235a8e94a3ffe5151efd8fbeae008))
+
 # [1.1.0](https://github.com/DuCanhGH/nettruyen-downloader/compare/v1.0.0...v1.1.0) (2022-10-05)
 
 
