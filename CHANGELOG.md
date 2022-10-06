@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/DuCanhGH/nettruyen-downloader/compare/v1.2.0...v1.2.1) (2022-10-06)
+
+
+### Performance Improvements
+
+* added terser ([3591d53](https://github.com/DuCanhGH/nettruyen-downloader/commit/3591d53b05df40dbb6f3a61dbc8a045fc35a204a))
+
 # [1.2.0](https://github.com/DuCanhGH/nettruyen-downloader/compare/v1.1.0...v1.2.0) (2022-10-06)
 
 
