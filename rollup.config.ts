@@ -1,4 +1,4 @@
-import { terser } from "@ducanh2912/rollup-plugin-terser";
+import terser from "@ducanh2912/rollup-plugin-terser";
 import typescript from "@rollup/plugin-typescript";
 import { defineConfig } from "rollup";
 
