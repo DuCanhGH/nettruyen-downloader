@@ -11,7 +11,8 @@
     "format": "prettier --write .",
     "lint": "eslint **/*.ts **/*.tsx",
     "typecheck": "tsc --noEmit",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "prepare": "husky install"
   },
   "bin": "./dist/index.js",
   "keywords": [
@@ -54,6 +55,7 @@
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-simple-import-sort": "8.0.0",
     "globals": "13.17.0",
+    "husky": "8.0.1",
     "prettier": "2.7.1",
     "prettier-plugin-jsdoc": "0.4.2",
     "rimraf": "3.0.2",

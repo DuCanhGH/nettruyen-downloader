@@ -21,6 +21,7 @@ specifiers:
   eslint-config-prettier: 8.5.0
   eslint-plugin-simple-import-sort: 8.0.0
   globals: 13.17.0
+  husky: 8.0.1
   inquirer: 9.1.3
   node-html-parser: 6.1.1
   ora: 6.1.2
@@ -67,6 +68,7 @@ devDependencies:
   eslint-config-prettier: 8.5.0_eslint@8.24.0
   eslint-plugin-simple-import-sort: 8.0.0_eslint@8.24.0
   globals: 13.17.0
+  husky: 8.0.1
   prettier: 2.7.1
   prettier-plugin-jsdoc: 0.4.2_prettier@2.7.1
   rimraf: 3.0.2
@@ -2309,6 +2311,12 @@ packages:
   /human-signals/2.1.0:
     resolution: {integrity: sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==}
     engines: {node: '>=10.17.0'}
+    dev: true
+
+  /husky/8.0.1:
+    resolution: {integrity: sha512-xs7/chUH/CKdOCs7Zy0Aev9e/dKOMZf3K1Az1nar3tzlv0jfqnYtu235bstsWTmXOR0EfINrPa97yy4Lz6RiKw==}
+    engines: {node: '>=14'}
+    hasBin: true
     dev: true
 
   /iconv-lite/0.4.24:
