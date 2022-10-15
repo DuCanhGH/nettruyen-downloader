@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/DuCanhGH/nettruyen-downloader/compare/v1.2.1...v1.2.2) (2022-10-15)
+
+
+### Bug Fixes
+
+* check whether output folder already exists or not ([033d8ed](https://github.com/DuCanhGH/nettruyen-downloader/commit/033d8ed6d7771aaf4b22c3ba8848d8d961e45bf7))
+
 ## [1.2.1](https://github.com/DuCanhGH/nettruyen-downloader/compare/v1.2.0...v1.2.1) (2022-10-06)
 
 
