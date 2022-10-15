@@ -57,6 +57,11 @@ const { outputFolder } = await inquirer.prompt<{
   type: "input",
   message: "Enter the output folder:",
   name: "outputFolder",
+  validate: (value) => {
+    if (fs.existsSync(path.resolve(process.cwd(), value)))
+      return "This folder already exists";
+    return true;
+  },
 });
 
 fs.mkdirSync(path.resolve(process.cwd(), outputFolder), { recursive: true });
