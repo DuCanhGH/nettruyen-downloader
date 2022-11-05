@@ -31,12 +31,12 @@
     "node-html-parser": "6.1.1",
     "ora": "6.1.2",
     "pdfkit": "0.13.0",
-    "radash": "9.0.1",
-    "sharp": "0.31.1",
+    "radash": "9.0.2",
+    "sharp": "0.31.2",
     "tslib": "2.4.1"
   },
   "devDependencies": {
-    "@ducanh2912/rollup-plugin-terser": "1.2.2",
+    "@ducanh2912/rollup-plugin-terser": "2.0.0",
     "@eslint/eslintrc": "1.3.3",
     "@rollup/plugin-typescript": "9.0.2",
     "@semantic-release/changelog": "6.0.1",

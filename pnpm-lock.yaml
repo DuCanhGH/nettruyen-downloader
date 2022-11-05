@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@ducanh2912/rollup-plugin-terser': 1.2.2
+  '@ducanh2912/rollup-plugin-terser': 2.0.0
   '@eslint/eslintrc': 1.3.3
   '@rollup/plugin-typescript': 9.0.2
   '@semantic-release/changelog': 6.0.1
@@ -28,11 +28,11 @@ specifiers:
   pdfkit: 0.13.0
   prettier: 2.7.1
   prettier-plugin-jsdoc: 0.4.2
-  radash: 9.0.1
+  radash: 9.0.2
   rimraf: 3.0.2
   rollup: 3.2.5
   semantic-release: 19.0.5
-  sharp: 0.31.1
+  sharp: 0.31.2
   terser: 5.15.1
   tslib: 2.4.1
   tsx: 3.11.0
@@ -44,12 +44,12 @@ dependencies:
   node-html-parser: 6.1.1
   ora: 6.1.2
   pdfkit: 0.13.0
-  radash: 9.0.1
-  sharp: 0.31.1
+  radash: 9.0.2
+  sharp: 0.31.2
   tslib: 2.4.1
 
 devDependencies:
-  '@ducanh2912/rollup-plugin-terser': 1.2.2_rollup@3.2.5+terser@5.15.1
+  '@ducanh2912/rollup-plugin-terser': 2.0.0_rollup@3.2.5+terser@5.15.1
   '@eslint/eslintrc': 1.3.3
   '@rollup/plugin-typescript': 9.0.2_skqhbvp355vci76ty3pdffvjrq
   '@semantic-release/changelog': 6.0.1_semantic-release@19.0.5
@@ -108,16 +108,16 @@ packages:
     dev: true
     optional: true
 
-  /@ducanh2912/rollup-plugin-terser/1.2.2_rollup@3.2.5+terser@5.15.1:
-    resolution: {integrity: sha512-6YfVOZcJFU5nfXe06OWSexYmn5eU1l0jx8PhK/+EAQfPZ4c5Lt/vyIKDM/+nhwJh8co3mKdEJi5p15a241vusQ==}
+  /@ducanh2912/rollup-plugin-terser/2.0.0_rollup@3.2.5+terser@5.15.1:
+    resolution: {integrity: sha512-oP2XBvN30Q2YSjY8SFoffL5VGOn/rZ+MVMyrQaIVC4zh+Bz7yztd0OpPRwN5urV0Xku7QAv5kpknfskJaTdQSg==}
     engines: {node: '>=10'}
     peerDependencies:
-      rollup: '>=2.0.0'
+      rollup: '>=3.0.0'
       terser: '>=5.0.0'
     dependencies:
       rollup: 3.2.5
       terser: 5.15.1
-      tslib: 2.4.0
+      tslib: 2.4.1
     dev: true
 
   /@esbuild-kit/cjs-loader/2.4.0:
@@ -713,7 +713,7 @@ packages:
       debug: 4.3.4
       globby: 11.1.0
       is-glob: 4.0.3
-      semver: 7.3.7
+      semver: 7.3.8
       tsutils: 3.21.0_typescript@4.8.4
       typescript: 4.8.4
     transitivePeerDependencies:
@@ -734,7 +734,7 @@ packages:
       eslint: 8.26.0
       eslint-scope: 5.1.1
       eslint-utils: 3.0.0_eslint@8.26.0
-      semver: 7.3.7
+      semver: 7.3.8
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -3165,7 +3165,7 @@ packages:
     resolution: {integrity: sha512-p+0xx5ruIQ+8X57CRIMxbTZRT7tU0Tjn2C/aAK68AEMrbGsCo6IjnDdPNhEyyjWCT4bRtzomXchYd3sSgk3BJQ==}
     engines: {node: '>=10'}
     dependencies:
-      semver: 7.3.7
+      semver: 7.3.8
     dev: false
 
   /node-addon-api/5.0.0:
@@ -3212,7 +3212,7 @@ packages:
     dependencies:
       hosted-git-info: 4.1.0
       is-core-module: 2.10.0
-      semver: 7.3.7
+      semver: 7.3.8
       validate-npm-package-license: 3.0.4
     dev: true
 
@@ -3646,8 +3646,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /radash/9.0.1:
-    resolution: {integrity: sha512-fkyeC97QsYT+YVzpF6Gb0wYWFMMZ36VWzCt5wW8oG+NCn/e1hiz/7oiBX1s2+hC5oLAlBZtEh3Jmw1Yq0Txfsg==}
+  /radash/9.0.2:
+    resolution: {integrity: sha512-jh8z5ow4wCzPKHrh4Kf8LXwTGmSoaGOHC6oyDC/nJXjVnZGF5YMbLk/QIgO5AFfw/T3zp9SBAfcoWJOfnQvhtw==}
     engines: {node: '>=14.18.0'}
     dev: false
 
@@ -3903,9 +3903,17 @@ packages:
     hasBin: true
     dependencies:
       lru-cache: 6.0.0
+    dev: true
 
-  /sharp/0.31.1:
-    resolution: {integrity: sha512-GR8M1wBwOiFKLkm9JPun27OQnNRZdHfSf9VwcdZX6UrRmM1/XnOrLFTF0GAil+y/YK4E6qcM/ugxs80QirsHxg==}
+  /semver/7.3.8:
+    resolution: {integrity: sha512-NB1ctGL5rlHrPJtFDVIVzTyQylMLu9N9VICA6HSFJo8MCGVTMW6gfpicwKmmK/dAjTOrqu5l63JJOpDSrAis3A==}
+    engines: {node: '>=10'}
+    hasBin: true
+    dependencies:
+      lru-cache: 6.0.0
+
+  /sharp/0.31.2:
+    resolution: {integrity: sha512-DUdNVEXgS5A97cTagSLIIp8dUZ/lZtk78iNVZgHdHbx1qnQR7JAHY0BnXnwwH39Iw+VKhO08CTYhIg0p98vQ5Q==}
     engines: {node: '>=14.15.0'}
     requiresBuild: true
     dependencies:
@@ -3913,7 +3921,7 @@ packages:
       detect-libc: 2.0.1
       node-addon-api: 5.0.0
       prebuild-install: 7.1.1
-      semver: 7.3.7
+      semver: 7.3.8
       simple-get: 4.0.1
       tar-fs: 2.1.1
       tunnel-agent: 0.6.0
@@ -4254,10 +4262,6 @@ packages:
 
   /tslib/1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
-    dev: true
-
-  /tslib/2.4.0:
-    resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==}
     dev: true
 
   /tslib/2.4.1:
