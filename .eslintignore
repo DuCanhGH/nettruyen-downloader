@@ -38,3 +38,6 @@ CHANGELOG.md
 
 # typescript
 tsconfig.tsbuildinfo
+
+# eslintrc
+.eslintrc.cjs
