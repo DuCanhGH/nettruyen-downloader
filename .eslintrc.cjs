@@ -20,7 +20,7 @@ module.exports = {
     "prettier/prettier": [
       "error",
       {
-        endOfLine: "off",
+        endOfLine: "auto",
       },
     ],
     "simple-import-sort/imports": "warn",

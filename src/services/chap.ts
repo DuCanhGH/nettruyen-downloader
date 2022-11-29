@@ -1,7 +1,7 @@
+import inquirer from "inquirer";
 import { executablePath } from "puppeteer";
 import puppeteer from "puppeteer-extra";
 import StealthPlugin from "puppeteer-extra-plugin-stealth";
-import inquirer from "inquirer";
 
 import type { ChapterType, ImageType } from "../shared/types.js";
 import type { ComicInfo } from "./comic.js";

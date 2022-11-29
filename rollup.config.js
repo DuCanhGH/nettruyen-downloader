@@ -28,5 +28,8 @@ export default defineConfig({
     "sharp",
     "node-html-parser",
     "crypto",
+    "puppeteer",
+    "puppeteer-extra",
+    "puppeteer-extra-plugin-stealth",
   ],
 });
