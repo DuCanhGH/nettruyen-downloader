@@ -1,3 +1,11 @@
+## [1.2.4](https://github.com/DuCanhGH/nettruyen-downloader/compare/v1.2.3...v1.2.4) (2022-11-29)
+
+
+### Bug Fixes
+
+* downloader shouldn't be blocked by Cloudflare anymore ([5b73403](https://github.com/DuCanhGH/nettruyen-downloader/commit/5b7340373501b9bb2297ab88cdfc95d52fc4b931))
+* ESLint issue ([68d26cd](https://github.com/DuCanhGH/nettruyen-downloader/commit/68d26cdd648a50610201a5b3b66b7e5afda7e943))
+
 ## [1.2.3](https://github.com/DuCanhGH/nettruyen-downloader/compare/v1.2.2...v1.2.3) (2022-11-29)
 
 
