@@ -1,3 +1,10 @@
+## [1.2.5](https://github.com/DuCanhGH/nettruyen-downloader/compare/v1.2.4...v1.2.5) (2022-11-29)
+
+
+### Bug Fixes
+
+* remove try-catch in services/comic ([e6a9278](https://github.com/DuCanhGH/nettruyen-downloader/commit/e6a92782e98d728acd5f3c18b87dc00caa2d7d39))
+
 ## [1.2.4](https://github.com/DuCanhGH/nettruyen-downloader/compare/v1.2.3...v1.2.4) (2022-11-29)
 
 
