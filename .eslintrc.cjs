@@ -17,6 +17,12 @@ module.exports = {
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-unused-vars": ["warn", { ignoreRestSiblings: true }],
     "no-extra-boolean-cast": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        endOfLine: "off",
+      },
+    ],
     "simple-import-sort/imports": "warn",
     "simple-import-sort/exports": "warn",
   },
