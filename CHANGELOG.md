@@ -1,3 +1,11 @@
+## [1.2.3](https://github.com/DuCanhGH/nettruyen-downloader/compare/v1.2.2...v1.2.3) (2022-11-29)
+
+
+### Bug Fixes
+
+* **hopefully:** ESLint ([3aee91e](https://github.com/DuCanhGH/nettruyen-downloader/commit/3aee91e8b504f2adcdb66e1c986d3fa8c93930b4))
+* **not fix, trigger release:** use rollup/plugin-terser ([abf3cd6](https://github.com/DuCanhGH/nettruyen-downloader/commit/abf3cd6017d3dff7b3536198d31c70e48308b9be))
+
 ## [1.2.2](https://github.com/DuCanhGH/nettruyen-downloader/compare/v1.2.1...v1.2.2) (2022-10-15)
 
 
