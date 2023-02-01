@@ -58,8 +58,6 @@ jobs:
           cache: "pnpm"
       - name: Install dependencies
         run: pnpm install
-        env:
-
       - name: Publish to npm
         uses: changesets/action@v1
         with:
