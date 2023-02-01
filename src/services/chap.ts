@@ -1,16 +1,13 @@
 import inquirer from "inquirer";
-import { executablePath } from "puppeteer";
-import puppeteer from "puppeteer-extra";
-import StealthPlugin from "puppeteer-extra-plugin-stealth";
+import type { Browser } from "puppeteer";
 
 import type { ChapterType, ImageType } from "../shared/types.js";
 import type { ComicInfo } from "./comic.js";
 
-export const getChapImages = async (url: string): Promise<ImageType[]> => {
-  puppeteer.use(StealthPlugin());
-  const browser = await puppeteer.launch({
-    executablePath: executablePath(),
-  });
+export const getChapImages = async (
+  browser: Browser,
+  url: string
+): Promise<ImageType[]> => {
   const page = await browser.newPage();
   await page.goto(url);
   const imgBox = await page.evaluate(() => document.querySelector(".box_doc"));
@@ -26,7 +23,6 @@ export const getChapImages = async (url: string): Promise<ImageType[]> => {
         : imgSrc;
     })
   );
-  await browser.close();
   return images;
 };
 

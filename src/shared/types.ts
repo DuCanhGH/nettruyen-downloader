@@ -1,4 +1,4 @@
-import { DOWNLOAD_TYPES } from "./constants.js";
+import type { DOWNLOAD_TYPES } from "./constants.js";
 
 type ImageType = string | undefined;
 
@@ -8,6 +8,6 @@ interface ChapterType {
   images: ImageType[];
 }
 
-type DownloadTypesType = typeof DOWNLOAD_TYPES[number];
+type DownloadTypesType = (typeof DOWNLOAD_TYPES)[number];
 
 export type { ChapterType, DownloadTypesType, ImageType };

@@ -4,7 +4,7 @@ module.exports = {
     browser: true,
     node: true,
   },
-  extends: ["eslint:recommended", "plugin:prettier/recommended", "prettier"],
+  extends: ["eslint:recommended", "prettier"],
   parserOptions: {
     tsconfigRootDir: __dirname,
     project: ["tsconfig.json", "tsconfig.eslint.json"],
@@ -13,16 +13,12 @@ module.exports = {
   },
   plugins: ["@typescript-eslint", "simple-import-sort"],
   rules: {
-    "@typescript-eslint/ban-ts-comment": "error",
+    "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/consistent-type-imports": "warn",
     "@typescript-eslint/no-unused-vars": ["warn", { ignoreRestSiblings: true }],
     "no-extra-boolean-cast": "off",
-    "prettier/prettier": [
-      "error",
-      {
-        endOfLine: "auto",
-      },
-    ],
     "simple-import-sort/imports": "warn",
     "simple-import-sort/exports": "warn",
   },

@@ -4,6 +4,9 @@ import inquirer from "inquirer";
 import ora from "ora";
 import path from "path";
 import PDFDocument from "pdfkit";
+import { executablePath } from "puppeteer";
+import puppeteer from "puppeteer-extra";
+import StealthPlugin from "puppeteer-extra-plugin-stealth";
 import { cluster, parallel, retry } from "radash";
 import sharp from "sharp";
 
@@ -33,9 +36,15 @@ const { comicURL } = await inquirer.prompt({
   name: "comicURL",
 });
 
+puppeteer.use(StealthPlugin());
+
+const browser = await puppeteer.launch({
+  executablePath: executablePath(),
+});
+
 const spinner = ora({ text: "Validating...", hideCursor: false }).start();
 
-const info = await getComicInfo(comicURL).catch(() => {
+const info = await getComicInfo(browser, comicURL).catch(() => {
   spinner.fail("Failed to fetch comic info");
   process.exit(1);
 });
@@ -194,7 +203,7 @@ fetchChapSpinner.start();
 
 await parallel(20, ([] as ChapterType[]).concat(...groups), async (chapter) => {
   fetchChapSpinner.text = `Fetching chapter ${++fetchedChaptersCount}`;
-  const chapImages = await getChapImages(chapter.url);
+  const chapImages = await getChapImages(browser, chapter.url);
   chapter.images = chapImages;
   images.push(...chapImages);
 });
@@ -334,3 +343,5 @@ console.log(
     "output"
   )}`
 );
+
+await browser.close();

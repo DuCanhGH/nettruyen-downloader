@@ -1,6 +1,4 @@
-import { executablePath } from "puppeteer";
-import puppeteer from "puppeteer-extra";
-import StealthPlugin from "puppeteer-extra-plugin-stealth";
+import type { Browser } from "puppeteer";
 
 import type { ChapterType, ImageType } from "../shared/types.js";
 
@@ -9,11 +7,10 @@ export interface ComicInfo {
   chapters: ChapterType[];
 }
 
-export const getComicInfo = async (comicURL: string): Promise<ComicInfo> => {
-  puppeteer.use(StealthPlugin());
-  const browser = await puppeteer.launch({
-    executablePath: executablePath(),
-  });
+export const getComicInfo = async (
+  browser: Browser,
+  comicURL: string
+): Promise<ComicInfo> => {
   const page = await browser.newPage();
   await page.goto(comicURL);
   const title = await page.evaluate(
@@ -42,6 +39,5 @@ export const getComicInfo = async (comicURL: string): Promise<ComicInfo> => {
     title,
     chapters,
   };
-  await browser.close();
   return result;
 };
