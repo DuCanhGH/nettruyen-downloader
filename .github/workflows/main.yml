@@ -4,6 +4,8 @@ jobs:
   typecheck_lint_build:
     name: Typecheck, lint, test, and build on Node ${{ matrix.node-version }} and ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
+    env:
+      PUPPETEER_SKIP_DOWNLOAD: true
     strategy:
       matrix:
         node-version: ["16.x"]
@@ -34,6 +36,8 @@ jobs:
     name: 🚀 Release packages
     needs: [typecheck_lint_build]
     runs-on: ${{ matrix.os }}
+    env:
+      PUPPETEER_SKIP_DOWNLOAD: true
     strategy:
       matrix:
         node-version: ["16.x"]
@@ -54,6 +58,8 @@ jobs:
           cache: "pnpm"
       - name: Install dependencies
         run: pnpm install
+        env:
+
       - name: Publish to npm
         uses: changesets/action@v1
         with:
