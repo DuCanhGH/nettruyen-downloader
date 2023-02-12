@@ -28,3 +28,9 @@ CHANGELOG.md
 
 # typescript
 tsconfig.tsbuildinfo
+
+# cache
+.cache
+
+# changesets
+.changeset

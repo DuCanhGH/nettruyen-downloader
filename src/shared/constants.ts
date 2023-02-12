@@ -10,7 +10,9 @@ export const DOWNLOAD_TYPES = [
   "Download a range of chapters into one file",
 ] as const;
 
-export const URL_REGEX =
+export const URL_REGEX = /\/truyen-tranh\/.+$/gm;
+
+export const FULL_URL_REGEX =
   /^https?:\/\/(www)?\.?(net|nhat)truyen.+\.((com)|(net))\/truyen-tranh\/.+$/gm;
 
 export const FALLBACK_IMAGE =
