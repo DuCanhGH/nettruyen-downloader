@@ -1,5 +1,11 @@
 ## [1.2.5](https://github.com/DuCanhGH/nettruyen-downloader/compare/v1.2.4...v1.2.5) (2022-11-29)
 
+## 1.3.0
+
+### Minor Changes
+
+- 391d4f8: feat, style(code): relative path, split index.ts into multiple files
+
 ## 1.2.6
 
 ### Patch Changes
