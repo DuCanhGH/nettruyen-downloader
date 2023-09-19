@@ -1,58 +1,48 @@
-name: Build reusable
-on:
-  workflow_call:
-    inputs:
-      nodeVersion:
-        required: false
-        description: "version of Node.js to use"
-        type: string
-      os:
-        required: false
-        description: "os to use"
-        type: string
-      skipInstall:
-        required: false
-        description: "whether to skip pnpm install && pnpm build"
-        type: string
-      afterBuild:
-        required: false
-        description: "additional steps to run"
-        type: string
+name: Setup Node.js
+description: Reusable action to setup Node.js
+
+inputs:
+  node-version:
+    required: false
+    description: "version of Node.js to use"
+  os:
+    required: false
+    description: "os to use"
+  skip-install:
+    required: false
+    description: "whether to skip pnpm install && pnpm build"
+  after-build:
+    required: false
+    description: "additional steps to run"
 env:
   PUPPETEER_SKIP_DOWNLOAD: true
-jobs:
-  build:
-    name: ⬣, 🔎, 🔨 Typecheck, lint, and build on Node ${{ matrix.node-version }} and ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        node-version: ${{ fromJson(inputs.nodeVersion || '["18.x"]') }}
-        os: ${{ fromJson(inputs.os || '[ubuntu-latest]') }}
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
-      - name: Use Node ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          check-latest: true
-      - name: Enable pnpm
-        run: corepack enable && pnpm --version
-      - name: Get pnpm store path
-        id: get-store-path
-        run: echo STORE_PATH=$(pnpm store path) >> $GITHUB_OUTPUT
-      - name: Setup cache
-        uses: actions/cache@v3
-        timeout-minutes: 5
-        id: cache-pnpm-store
-        with:
-          path: ${{ steps.get-store-path.outputs.STORE_PATH }}
-          key: pnpm-store-${{ hashFiles('pnpm-lock.yaml') }}
-          restore-keys: |
-            pnpm-store-
-            pnpm-store-${{ hashFiles('pnpm-lock.yaml') }}
-      - name: Install dependencies
-        run: pnpm install
-        if: ${{ inputs.skipInstall != 'yes' }}
-      - name: Run after build
-        run: /bin/bash -c "${{ inputs.afterBuild }}"
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+    - name: Use Node ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        check-latest: true
+    - name: Enable pnpm
+      run: corepack enable && pnpm --version
+    - name: Get pnpm store path
+      id: get-store-path
+      run: echo STORE_PATH=$(pnpm store path) >> $GITHUB_OUTPUT
+    - name: Setup cache
+      uses: actions/cache@v3
+      timeout-minutes: 5
+      id: cache-pnpm-store
+      with:
+        path: ${{ steps.get-store-path.outputs.STORE_PATH }}
+        key: pnpm-store-${{ hashFiles('pnpm-lock.yaml') }}
+        restore-keys: |
+          pnpm-store-
+          pnpm-store-${{ hashFiles('pnpm-lock.yaml') }}
+    - name: Install dependencies
+      run: pnpm install
+      if: ${{ inputs.skip-install != 'yes' }}
+    - name: Run after build
+      run: /bin/bash -c "${{ inputs.after-build }}"

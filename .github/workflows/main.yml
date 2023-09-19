@@ -15,8 +15,7 @@ jobs:
       - name: Setup Node.js & install dependencies
         uses: ./.github/actions/setup-node
         with:
-          os: ${{ matrix.os }}
-          nodeVersion: ${{ matrix.node-version }}
+          node-version: ${{ matrix.node-version }}
       - name: Typecheck
         run: pnpm typecheck
       - name: Lint
@@ -38,8 +37,7 @@ jobs:
       - name: Setup Node.js & install dependencies
         uses: ./.github/actions/setup-node
         with:
-          os: ${{ matrix.os }}
-          nodeVersion: ${{ matrix.node-version }}
+          node-version: ${{ matrix.node-version }}
       - name: Publish to npm
         uses: changesets/action@v1
         with:
