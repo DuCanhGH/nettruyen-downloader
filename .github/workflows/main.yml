@@ -4,28 +4,19 @@ jobs:
   typecheck_lint_build:
     name: Typecheck, lint, test, and build on Node ${{ matrix.node-version }} and ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
-    env:
-      PUPPETEER_SKIP_DOWNLOAD: true
     strategy:
       matrix:
         node-version: ["18.x"]
-        pnpm-version: ["8.x"]
         os: [ubuntu-latest]
     if: ${{ github.ref == 'refs/heads/master' }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
-      - name: Use pnpm
-        uses: pnpm/action-setup@v2
+      - name: Setup Node.js & install dependencies
+        uses: ./.github/workflows/setup-node.yml
         with:
-          version: ${{ matrix.pnpm-version }}
-      - name: Use Node ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "pnpm"
-      - name: Install dependencies
-        run: pnpm install
+          os: ${{ matrix.os }}
+          nodeVersion: ${{ matrix.node-version }}
       - name: Typecheck
         run: pnpm typecheck
       - name: Lint
@@ -36,8 +27,6 @@ jobs:
     name: 🚀 Release packages
     needs: [typecheck_lint_build]
     runs-on: ${{ matrix.os }}
-    env:
-      PUPPETEER_SKIP_DOWNLOAD: true
     strategy:
       matrix:
         node-version: ["18.x"]
@@ -46,25 +35,11 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
-      - run: corepack enable && pnpm --version
-      - id: get-store-path
-        run: echo STORE_PATH=$(pnpm store path) >> $GITHUB_OUTPUT
-      - uses: actions/cache@v3
-        timeout-minutes: 5
-        id: cache-pnpm-store
+      - name: Setup Node.js & install dependencies
+        uses: ./.github/workflows/setup-node.yml
         with:
-          path: ${{ steps.get-store-path.outputs.STORE_PATH }}
-          key: pnpm-store-${{ hashFiles('pnpm-lock.yaml') }}
-          restore-keys: |
-            pnpm-store-
-            pnpm-store-${{ hashFiles('pnpm-lock.yaml') }}
-      - name: Use Node ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "pnpm"
-      - name: Install dependencies
-        run: pnpm install
+          os: ${{ matrix.os }}
+          nodeVersion: ${{ matrix.node-version }}
       - name: Publish to npm
         uses: changesets/action@v1
         with:
