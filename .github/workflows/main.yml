@@ -32,6 +32,9 @@ jobs:
       matrix:
         node-version: ["18.x"]
         os: [ubuntu-latest]
+    permissions:
+      contents: write
+      id-token: write
     env:
       PUPPETEER_SKIP_DOWNLOAD: true
     if: ${{ github.ref == 'refs/heads/master' && (contains(github.event.head_commit.message, '[bump]') || contains(github.event.head_commit.message, 'RELEASING')) }}

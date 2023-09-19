@@ -5,12 +5,9 @@ inputs:
   node-version:
     required: false
     description: "version of Node.js to use"
-  os:
-    required: false
-    description: "os to use"
   skip-install:
     required: false
-    description: "whether to skip pnpm install && pnpm build"
+    description: "whether to skip pnpm install"
   after-build:
     required: false
     description: "additional steps to run"
