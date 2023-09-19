@@ -8,10 +8,10 @@ jobs:
       PUPPETEER_SKIP_DOWNLOAD: true
     strategy:
       matrix:
-        node-version: ["16.x"]
-        pnpm-version: ["7.x"]
+        node-version: ["18.x"]
+        pnpm-version: ["8.x"]
         os: [ubuntu-latest]
-    if: ${{ github.ref == 'refs/heads/master' && !contains(github.event.head_commit.message, '[skip ci]') }}
+    if: ${{ github.ref == 'refs/heads/master' }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -40,17 +40,24 @@ jobs:
       PUPPETEER_SKIP_DOWNLOAD: true
     strategy:
       matrix:
-        node-version: ["16.x"]
-        pnpm-version: ["7.x"]
+        node-version: ["18.x"]
         os: [ubuntu-latest]
     if: ${{ github.ref == 'refs/heads/master' && (contains(github.event.head_commit.message, '[bump]') || contains(github.event.head_commit.message, 'RELEASING')) }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
-      - name: Use pnpm
-        uses: pnpm/action-setup@v2
+      - run: corepack enable && pnpm --version
+      - id: get-store-path
+        run: echo STORE_PATH=$(pnpm store path) >> $GITHUB_OUTPUT
+      - uses: actions/cache@v3
+        timeout-minutes: 5
+        id: cache-pnpm-store
         with:
-          version: ${{ matrix.pnpm-version }}
+          path: ${{ steps.get-store-path.outputs.STORE_PATH }}
+          key: pnpm-store-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            pnpm-store-
+            pnpm-store-${{ hashFiles('pnpm-lock.yaml') }}
       - name: Use Node ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
