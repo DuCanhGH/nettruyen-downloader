@@ -18,6 +18,7 @@ puppeteer.use(StealthPlugin());
 
 const browser = await puppeteer.launch({
   executablePath: executablePath(),
+  headless: "new",
 });
 
 const comicURL = await getComicUrl();

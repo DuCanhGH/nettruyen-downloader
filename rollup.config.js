@@ -1,7 +1,14 @@
 // @ts-check
-import terser from "@rollup/plugin-terser";
-import typescript from "@rollup/plugin-typescript";
+import nodeResolve from "@rollup/plugin-node-resolve";
+import swc from "@rollup/plugin-swc";
 import { defineConfig } from "rollup";
+
+import { swcConfig } from "./.swcrc.js";
+import packageJson from "./package.json" assert { type: "json" };
+
+const isDev = process.env.NODE_ENV !== "production";
+
+const forcedExternals = [...Object.keys(packageJson.dependencies)];
 
 export default defineConfig({
   input: "src/index.ts",
@@ -11,25 +18,17 @@ export default defineConfig({
     banner: "#!/usr/bin/env node",
   },
   plugins: [
-    typescript({
-      noForceEmit: true,
-      noEmitOnError: true,
+    nodeResolve({
+      exportConditions: ["node"],
+      preferBuiltins: true,
+      extensions: [".js", ".ts"],
     }),
-    terser(),
+    swc({
+      swc: {
+        ...swcConfig,
+        minify: !isDev,
+      },
+    }),
   ],
-  external: [
-    "axios",
-    "fs",
-    "inquirer",
-    "ora",
-    "path",
-    "pdfkit",
-    "radash",
-    "sharp",
-    "node-html-parser",
-    "crypto",
-    "puppeteer",
-    "puppeteer-extra",
-    "puppeteer-extra-plugin-stealth",
-  ],
+  external: forcedExternals,
 });
