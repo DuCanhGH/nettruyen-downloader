@@ -1,5 +1,13 @@
 ## [1.2.5](https://github.com/DuCanhGH/nettruyen-downloader/compare/v1.2.4...v1.2.5) (2022-11-29)
 
+## 1.3.1
+
+### Patch Changes
+
+- 7bf29d5: chore(deps): updated all dependencies
+
+      - Felt like resurrecting this repo 💀
+
 ## 1.3.0
 
 ### Minor Changes
