@@ -20,20 +20,24 @@ runs:
   using: "composite"
   steps:
     - name: Checkout repo
+      shell: bash
       uses: actions/checkout@v3
     - name: Use Node ${{ matrix.node-version }}
+      shell: bash
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         check-latest: true
     - name: Enable pnpm
+      shell: bash
       run: corepack enable && pnpm --version
     - name: Get pnpm store path
       id: get-store-path
+      shell: bash
       run: echo STORE_PATH=$(pnpm store path) >> $GITHUB_OUTPUT
     - name: Setup cache
+      shell: bash
       uses: actions/cache@v3
-      timeout-minutes: 5
       id: cache-pnpm-store
       with:
         path: ${{ steps.get-store-path.outputs.STORE_PATH }}
@@ -42,7 +46,9 @@ runs:
           pnpm-store-
           pnpm-store-${{ hashFiles('pnpm-lock.yaml') }}
     - name: Install dependencies
+      shell: bash
       run: pnpm install
       if: ${{ inputs.skip-install != 'yes' }}
     - name: Run after build
+      shell: bash
       run: /bin/bash -c "${{ inputs.after-build }}"
